@@ -1,0 +1,72 @@
+<!-- infrastructure Section -->
+<section class="infra">
+
+  <!-- Begin 50% page content -->
+  <div class="center-container">
+    <div class="center-row">
+      <div class="text-center col-xs-12">
+        <div class="grade-box">
+          <div class="grade-box-top">
+            <h3>How Convox Works</h3>
+          </div>
+          <div class="grade-box-btm">
+      <div class="bullet">
+        <div class="number">1</div>
+        <div class="description">
+                <h4>Install in your own AWS accounts</h4>
+                <p>Get industry best practices without the research and development. Bring control and consistency to your team.</p>
+        </div>
+      </div>
+      <div class="bullet">
+        <div class="number">2</div>
+        <div class="description">
+                <h4>Integrate with existing resources</h4>
+                <p>Connect to your other private databases and VPCs. You control the private networking.</p>
+        </div>
+      </div>
+      <div class="bullet">
+        <div class="number">3</div>
+        <div class="description">
+                <h4>Use the Convox API and CLI</h4>
+                <p>Manage apps, builds, and logs. Not servers and containers.</p>
+        </div>
+      </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center col-xs-12">
+        <div class="cmd-box">
+          <pre>
+<span><span class="ps1">$</span> convox apps</span>
+APP    STATUS
+myapp  running
+
+<span><span class="ps1">$</span> convox apps info</span>
+Name       myapp
+Status     running
+Release    REXIQURVKXE
+Processes  admin web
+Hostname   myapp.us-east-1.elb.amazonaws.com
+Ports      web:80 web:443 admin:9322
+
+<span><span class="ps1">$</span> convox ps</span>
+NAME   CPU    MEM     STARTED       COMMAND
+admin  0.47%  2.21%   17 hours ago  bin/admin
+web    3.29%  20.68%  17 hours ago  bin/web
+
+<span><span class="ps1">$</span> convox env</span>
+PASSWORD=xyzzy
+
+<span><span class="ps1">$</span> convox logs</span>
+web: "GET / HTTP/1.1" 200 554 0.0027
+web: "POST /users HTTP/1.1" 303 - 0.0049
+          </pre>
+
+          <!--<img src="/assets/images/cmd-img.png" alt="CMD Command Image" class="img-responsive">-->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

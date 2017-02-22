@@ -1,0 +1,169 @@
+---
+layout: team
+---
+
+<section class="members">
+  <div class="container">
+    <row class="member col-xs-12 col-md-6">
+      <a href="https://github.com/soulshake">
+        <div class="col-xs-4">
+          <img src="https://avatars3.githubusercontent.com/u/1585815?v=3&s=160">
+        </div>
+      </a>
+      <div class="details col-xs-8">
+        <h2>AJ Bowen</h2>
+        <ul>
+          <li>Goal: To be at the top of all alphabetical lists. Also to containerize all the things, and to help others do the same.</li>
+        </ul>
+      </div>
+    </row>
+
+    <row class="member col-xs-12 col-md-6">
+      <a href="https://github.com/ddollar">
+        <div class="col-xs-4">
+          <img src="https://avatars1.githubusercontent.com/u/3308?v=3&s=160">
+        </div>
+      </a>
+      <div class="details col-xs-8">
+        <h2>David Dollar</h2>
+        <ul>
+          <li>Goal: Build an open, distributed company that helps developers be more productive.</li>
+          <li>Host of <a href="http://www.heavybit.com/library/podcasts/dont-make-me-code/">Don't Make Me Code</a> podcast.</li>
+        </ul>
+      </div>
+    </row>
+
+    <row class="member col-xs-12 col-md-6">
+      <a href="https://github.com/ianmalott">
+        <div class="col-xs-4">
+          <img src="https://avatars0.githubusercontent.com/u/218440?v=3&s=160">
+        </div>
+      </a>
+      <div class="details col-xs-8">
+        <h2>Ian Malott</h2>
+        <ul>
+          <li>Goal: Help build the infrastructure tools I always wanted as an application developer.</li>
+        </ul>
+      </div>
+    </row>
+
+    <row class="member col-xs-12 col-md-6">
+      <a href="https://github.com/awsmsrc">
+        <div class="col-xs-4">
+          <img src="https://avatars1.githubusercontent.com/u/994907?v=3&s=160">
+        </div>
+      </a>
+      <div class="details col-xs-8">
+        <h2>Luke Roberts</h2>
+        <ul>
+          <li>Goal: Save the world one Go func at a time.</li>
+          <li>Organizer of <a href="http://gophergala.com/">Gopher Gala</a>.</li>
+        </ul>
+      </div>
+    </row>
+
+    <row class="member col-xs-12 col-md-6">
+      <a href="https://github.com/mattmanning">
+        <div class="col-xs-4">
+          <img src="https://avatars3.githubusercontent.com/u/44615?v=3&s=160">
+        </div>
+      </a>
+      <div class="details col-xs-8">
+        <h2>Matt Manning</h2>
+        <ul>
+          <li>Goal: Build the future and make DevOps easier.</li>
+          <li>Volunteer for <a href="https://coderdojo.com/">CoderDojo</a>.</li>
+          <li>Wrote <a href="https://medium.com/@mattmanning/a-tale-of-two-onboardings-956dbdc15002#.xxm7x6vl8">A Tale of Two Onboardings</a> and <a href="https://blog.heroku.com/buildpacks">Buildpacks: Heroku for Everything</a>.</li>
+        </ul>
+      </div>
+    </row>
+
+    <row class="member col-xs-12 col-md-6">
+      <a href="https://github.com/MiguelMoll">
+        <div class="col-xs-4">
+          <img src="https://avatars0.githubusercontent.com/u/643960?v=3&s=160">
+        </div>
+      </a>
+      <div class="details col-xs-8">
+        <h2>Miguel Moll</h2>
+        <ul>
+          <li>Goal: I want to create tools that help both developers and administrators lives easier while saving time.</li>
+          <li>Hobby game developer.</li>
+        </ul>
+      </div>
+    </row>
+
+    <row class="member col-xs-12 col-md-6">
+      <a href="https://github.com/nzoschke">
+        <div class="col-xs-4">
+          <img src="https://avatars3.githubusercontent.com/u/147410?v=3&s=160">
+        </div>
+      </a>
+      <div class="details col-xs-8">
+        <h2>Noah Zoschke</h2>
+        <ul>
+          <li>Goal: Foster more cooperation around how we use the cloud.</li>
+          <li>Wrote <a href="https://medium.com/@nzoschke/the-seven-biggest-challenges-of-deployment-to-ecs-414ebcd6d9ec#.rvs98u6jk">Challenges of ECS</a> and presented <a href="https://www.heavybit.com/library/video/heroku-operations/">Heroku Operations</a>.</li>
+          <li>Creator of Heroku PG Backups and Heroku Scheduler</li>
+        </ul>
+      </div>
+    </row>
+  </div>
+</section>
+
+<section class="contributors">
+  <div class="container">
+    <h2>Contributors</h2>
+    <div class="list"></div>
+  </div>
+</section>
+
+<script>
+
+var g_contributors = {}
+
+function add_contributors(contributors) {
+  for (var i in contributors) {
+    var c = contributors[i];
+
+    if (!(c.id in g_contributors)) {
+      g_contributors[c.id] = { contributions: 0, login: c.login };
+    }
+
+    g_contributors[c.id].contributions += c.contributions
+  }
+}
+
+function display_contributors() {
+  var sorted = [];
+
+  for (var id in g_contributors) {
+    sorted.push([id, g_contributors[id]]);
+  }
+
+  sorted.sort(function(a, b) {
+    return b[1].contributions-a[1].contributions;
+  });
+
+  var root = $('.contributors .list');
+
+  for (var i in sorted) {
+    var id = sorted[i][0];
+    var contributions = sorted[i][1].contributions;
+    var login = sorted[i][1].login;
+
+    root.append('<div class="contributor"><a href="https://github.com/' + login + '"><img src="https://avatars3.githubusercontent.com/u/' + id + '?v=3&s=64"></a></div>');
+  }
+}
+
+$(window).ready(function() {
+  $.get('https://api.github.com/repos/convox/rack/contributors?per_page=100', function(data) {
+    add_contributors(data);
+    $.get('https://api.github.com/repos/convox/convox.github.io/contributors?per_page=100', function(data) {
+      add_contributors(data);
+      display_contributors();
+    });
+  });
+});
+
+</script>

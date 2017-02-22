@@ -1,0 +1,15 @@
+version: '2'
+services:
+  web:
+    build: .
+    command: ["node", "web.js"]
+    labels:
+      - convox.port.443.protocol=https
+    ports:
+     - 80:8000
+     - 443:8000
+  worker:
+    build: .
+    command: ["node", "worker.js"]
+    environment:
+      - GITHUB_API_TOKEN

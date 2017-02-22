@@ -1,0 +1,38 @@
+@charset "UTF-8";
+/* CSS Document */
+/*
+Next Button Is RICO
+*/
+
+/* next button container */
+
+#container-next-button {
+text-align:right;margin: 0 auto;
+background: rgba(255,255,255,0.3); /* Convox blue */
+padding: 20px 0px;
+border-radius: 10px;
+}
+
+/* for an =up next= wording above button if desired */
+#container-next-button h4 {
+   color: #444444;
+   text-align:center;
+}
+
+/* the next button itself */
+.btn-primary {
+   width:100%;
+   white-space:pre;
+   color:rgba(255,255,255,1) !important;
+   font-family: 'Droid Sans', sans-serif;
+   font-weight: 800;
+   text-transform: uppercase;
+   font-size:20px;
+}
+
+/* the link on hover  */
+.sbtn-primary:hover { 
+   /* For now I'm hovering with Convox Blue */
+   color: rgba(4,83,148, 1) !important;
+   background: rgb(255,255,255);
+}

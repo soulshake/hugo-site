@@ -1,0 +1,42 @@
+#!/bin/sh
+
+[ -z $HUGO_BASEURL ] && HUGO_BASEURL="https://convox.com"
+
+echo "-------------------------"
+echo "DEVELOPMENT: $DEVELOPMENT"
+echo "HUGO_BASEURL: $HUGO_BASEURL"
+echo "-------------------------"
+
+if [[ "$DEVELOPMENT" == 'true' ]]; then
+    hugo server \
+        --verbose \
+        --log \
+        --verboseLog \
+        --enableGitInfo \
+        --renderToDisk=true \
+        --source=/src \
+        --destination=/data/www \
+        --watch=true \
+        --baseUrl=${HUGO_BASEURL} \
+        --bind=0.0.0.0 \
+        --appendPort=false \
+        --config=/src/config.toml
+        #--port=80
+        #--theme=${HUGO_THEME} \
+else
+    hugo server \
+        --verbose \
+        --log \
+        --verboseLog \
+        --renderToDisk=true \
+        --source=/src \
+        --destination=/data/www \
+        --watch=false \
+        --baseUrl=${HUGO_BASEURL} \
+        --bind=0.0.0.0 \
+        --appendPort=false \
+        --config=/src/config.toml
+        #--port=80
+        #--theme=${HUGO_THEME} \
+fi
+

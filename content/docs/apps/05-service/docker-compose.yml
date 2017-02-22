@@ -1,0 +1,8 @@
+version: '2'
+services:
+  web:
+    build: .
+    command: ["node", "web.js"]
+  worker:
+    build: .
+    command: ["node", "worker.js"]

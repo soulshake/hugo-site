@@ -1,0 +1,9 @@
+version: "2"
+services:
+  web:
+    build: .
+    command: bin/web
+    ports:
+      - "80:1313"
+    environment:
+      - DEVELOPMENT

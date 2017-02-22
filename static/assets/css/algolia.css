@@ -1,0 +1,71 @@
+.aa-dropdown-menu {
+  left: auto !important;
+  right: 0px !important;
+  text-transform: none;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,400i,700');
+.aa-input-container {
+  display: inline-block;
+  position: relative;
+  float: right;
+}
+
+.aa-input-search {
+  margin-top: 7px; margin-right: 7px;
+    height: 32px; width: 130px;
+  padding: 12px 28px 12px 12px;
+  border: 2px solid #e4e4e4;
+  border-radius: 4px;
+  -webkit-transition: .2s;
+  transition: .2s;
+  font-family: "Lato", "Helvetica", "Arial", san-serif;
+  box-shadow: 4px 4px 0 rgba(241, 241, 241, 0.35);
+  font-size: 12px; font-weight: 700; letter-spacing:0.1122em;
+    box-sizing: border-box;
+  color: #333;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
+  .aa-input-search::-webkit-search-decoration, .aa-input-search::-webkit-search-cancel-button, .aa-input-search::-webkit-search-results-button, .aa-input-search::-webkit-search-results-decoration {
+    display: none; }
+
+  .aa-input-search:focus {
+    outline: 0;
+    border-color: #3a96cf;
+    box-shadow: 4px 4px 0 rgba(58, 150, 207, 0.1); }
+
+.aa-input-icon {
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  top: 55%;
+  right: 16px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  fill: #EA9B00;
+  pointer-events: none;
+}
+
+
+input[type=search] {
+    border: solid 1px #ccc;
+    padding: 9px 10px 9px 9px;
+    width: 130px;
+
+    -webkit-border-radius: 10em;
+    -moz-border-radius: 10em;
+    border-radius: 10em;
+}
+
+input[type=search]:focus {
+    width: 130px;
+    background-color: #fff;
+    border-color: #66CC75;
+
+    -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+    -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+    box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+

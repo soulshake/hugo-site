@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ "$NODE_ENV" == "development" ]; then
+  $(npm bin)/nodemon worker.js "$@"
+else
+  node worker.js "$@"
+fi

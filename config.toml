@@ -1,0 +1,85 @@
+
+#baseURL: https://convox.com
+#disablePathToLower: true
+#languageCode: en-us
+#title: My New Hugo Site
+#watch: true
+
+baseUrl = "/"
+CanonifyUrls = false
+languageCode = "en-us"
+title = "a flash of light and a distant boom"
+builddrafts = false
+buildfuture = false
+#theme = "blackburn"
+
+log = true
+logFile = "hugo.log"
+verbose = true
+verboseLog = true
+
+config = "config.toml"
+contentdir = "content"
+dataDir = "data"
+defaultExtension = "html"
+defaultLayout = "post"
+
+[params]
+	description = "Convox"
+    author = "Convox, Inc"
+    disqusShortname = "blogsoulshakenet"
+    disqus = "blogsoulshakenet"
+    subtitle = "Ohai I'm a subtitle"
+    brand = "Simplify your apps"
+    #googleAnalytics = "Your Google Analytics tracking ID"
+    # CSS name for highlight.js
+    #highlightjs = "androidstudio"
+    # dateFormat = "02 Jan 2006, 15:04"
+
+
+[taxonomies]
+tag = "tags"
+category = "categories"
+series = "series"
+
+[permalinks]
+    post = "/:year/:month/:filename/"
+    code = "/:filename/"
+
+[indexes]
+  tag = "tags"
+  topic = "topics"
+
+[menu]
+  # Shown in the side menu.
+  [[menu.main]]
+    name = "Home"
+    pre = "<i class='fa fa-home fa-fw'></i>"
+    weight = 0
+    identifier = "home"
+    url = "/"
+  [[menu.main]]
+    name = "Posts"
+    pre = "<i class='fa fa-list fa-fw'></i>"
+    weight = 1
+    identifier = "post"
+    url = "/post/"
+  [[menu.main]]
+    name = "About"
+    pre = "<i class='fa fa-user fa-fw'></i>"
+    weight = 2
+    identifier = "about"
+    url = "/about/"
+  [[menu.main]]
+    name = "Contact"
+    pre = "<i class='fa fa-phone fa-fw'></i>"
+    weight = 3
+    url = "/contact/"
+
+[social]
+  # Link your social networking accouns to the side menu
+  # by entering your username or ID.
+
+  # SNS microblogging
+  twitter = "@s0ulshake"
+

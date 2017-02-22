@@ -1,0 +1,8 @@
+  <script>
+    $('.js-intercom-show').click(function () {
+      Intercom('show');
+      return false;
+    });
+
+    analytics.trackLink($('a.cta'), function(e) { return "clicked " + e.id })
+  </script>

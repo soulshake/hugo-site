@@ -1,0 +1,28 @@
+version: '2'
+services:
+  web:
+    build: .
+    command: ["bin/web"]
+    environment:
+      - NODE_ENV=development
+      - REDIS_URL
+    labels:
+      - convox.port.443.protocol=https
+    links:
+      - redis
+    ports:
+      - 80:8000
+      - 443:8000
+  worker:
+    build: .
+    command: ["bin/worker"]
+    environment:
+      - GITHUB_API_TOKEN
+      - NODE_ENV=development
+      - REDIS_URL
+    links:
+      - redis
+  redis:
+    image: convox/redis
+    ports:
+      - 6379

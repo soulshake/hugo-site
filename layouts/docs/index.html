@@ -1,0 +1,54 @@
+<header>
+  <div class="container"><h2>Convox Documentation</h2></div>
+  {{ template "partials/algolia.html" }}
+
+  <ul>
+    <li class="pull-right visible-md-block visible-lg-block"><h2 id="version"></h2></li>
+    <li class="pull-right visible-xs-block visible-sm-block">
+      <div class="btn-group visible-xs-block visible-sm-block pull-right" id="toc-collapsed">
+        <button id="toc-toggle" type="button" class="btn btn-xs btn-default dropdown-toggle"
+          data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+          <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+          <span class="caret"></span>
+        </button>
+
+
+      </div>
+    </li>
+  </ul>
+</header>
+
+<section id="main">
+<div>
+<h1 id="title">{{ .Title }}</h1>
+{{ range .Content.Pages }}
+{{ .Render "summary"}}
+{{ end }}
+</div>
+</section>
+
+<div class="container subnav-content docs" role="main">
+  <section id="toc" class="col-md-3 col-lg-3 visible-md-block visible-lg-block">
+<ul>
+{{ $data := .Data }}
+{{ range $key, $value := .Data.Taxonomy.Alphabetical }}
+<li><a href="{{ .Site.LanguagePrefix }}/{{ $data.Plural }}/{{ $value.Name | urlize }}"> {{ $value.Name }} </a> {{ $value.Count }} </li>
+{{ end }}
+</ul>
+  </section>
+
+  <section id="doc" class="col-md-9 col-sm-12 col-xs-12">
+    <h1 class="title">{{ .Page.title }}</h1>
+
+    <div class="content">
+      {{ .Content }}
+    </div>
+
+    <div class="feedback">
+      We happily welcome
+      <a target="_new" href="https://github.com/convox/site/issues/new?title={{ .Page.title }}+Feedback">feedback</a>
+      or
+      <a href="https://github.com/convox/site/edit/master/{{.Page.path}}">suggested changes</a> to this document.
+    </div>
+  </section>
+</div>
